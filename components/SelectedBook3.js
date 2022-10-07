@@ -1,13 +1,18 @@
 import { Ionicons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 import React from "react";
-import { View, Text, StatusBar, Image, StyleSheet } from "react-native";
+import { View, Text, Image, StyleSheet } from "react-native";
 import { ScrollView } from "react-native-virtualized-view";
+import { StatusBar } from 'expo-status-bar';
+import { SafeAreaView } from "react-native-safe-area-context";
+
 
 const SelectedBookScreen = ({ route }) => {
   const selectedBookData = route.params.selectedBookObj;
   const navigation = useNavigation();
   return (
+    <SafeAreaView style={{flex:1, backgroundColor: '#323232'}}>
+    <StatusBar/>
     <View
       style={{
         backgroundColor: "#323232",
@@ -46,6 +51,8 @@ const SelectedBookScreen = ({ route }) => {
         </View>
       </View>
     </View>
+    </SafeAreaView>
+    
   );
 };
 
