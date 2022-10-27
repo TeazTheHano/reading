@@ -250,7 +250,7 @@ const ListCard = ({ cardObj }) => {
         marginTop: 16,
       }}
     >
-      
+    
         <FlatList
           numColumns={2}
           data={lists}
@@ -258,7 +258,7 @@ const ListCard = ({ cardObj }) => {
           renderItem={({ item }) => {
             
             return (
-              <View style={{ margin: 7 }}>
+              <View style={{ margin: vw(2) }}>
                 <View style={styles.card}>
                   <TouchableHighlight
                     onPress={() => {
@@ -273,7 +273,7 @@ const ListCard = ({ cardObj }) => {
 
                 <View
                   style={{
-                    width: 180,
+                    width: vw(40),
                     // alignItems: "left",
                   }}
                 >
@@ -324,8 +324,8 @@ const ListCard = ({ cardObj }) => {
 
 const styles = StyleSheet.create({
   card: {
-    width: 180,
-    height: 180,
+    width: vw(40),
+    height: vw(40),
     backgroundColor: "white",
     borderColor: "#cccccc",
     borderWidth: 1,

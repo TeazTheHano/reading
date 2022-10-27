@@ -5,7 +5,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 
 function Splash({ navigation }) {
   return (
-    <SafeAreaView style={{flex:1, backgroundColor: '#323232'}}>
+    <SafeAreaView style={{flex:1, backgroundColor: 'white'}}>
     <StatusBar/>
     <View style={styles.container}>
       <View>
@@ -13,8 +13,8 @@ function Splash({ navigation }) {
       </View>
 
       <View style={{ alignItems: "center", justifyContent: "center" }}>
-        <Text style={{ color: "#D237ED", fontWeight: "700", fontSize: 40 }}>
-          Xin Chao
+        <Text style={{ color: "#8B558E", fontWeight: "700", fontSize: 40 }}>
+          Xin chào
         </Text>
       </View>
 
@@ -24,14 +24,14 @@ function Splash({ navigation }) {
             borderRadius: 6,
             width: 380,
             height: 60,
-            backgroundColor: "#A49CF2",
+            backgroundColor: "#8A56E6",
             justifyContent: "center",
           }}
           mode="contained"
           onPress={() => navigation.navigate("Sign in")}
         >
           {" "}
-          SIGN IN{" "}
+          Đăng nhập{" "}
         </Button>
       </View>
 
@@ -50,7 +50,7 @@ function Splash({ navigation }) {
           onPress={() => navigation.navigate("Sign in")}
         >
           {" "}
-          SIGN UP{" "}
+          Đăng ký{" "}
         </Button>
       </View>
     </View>
@@ -61,7 +61,8 @@ function Splash({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#323232",
+    backgroundColor: "white",
+    alignSelf: 'center'
   },
 });
 
