@@ -30,7 +30,7 @@ const Add = () => {
       <View
         style={{ marginTop: StatusBar.currentHeight, alignItems: "center" }}
       >
-        
+        <Image source={require("../assets/adding.png")} />
         <View style={{ marginTop: -189 }}>
           <Image source={require("../assets/plus.png")} />
         </View>
