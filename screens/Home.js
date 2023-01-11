@@ -46,7 +46,7 @@ const Home = () => {
           width: '100%',
           alignSelf: 'center',
           position: 'relative',
-          marginTop: vw(1),
+          
         }}>
           <Image
               style={style.accountPic}
@@ -57,12 +57,8 @@ const Home = () => {
           <View>
             <Text style={{fontWeight: 'bold', fontSize: 18, color: 'white'}}>Chào Tuan Minh</Text>
             <Text style={{fontSize: 14, color: 'white', marginTop: vw(1.5)}}>Đống Đa, Hà Nội, Việt Nam</Text>
-          
-          {/* Way to bookmark */}
           </View>
-          <Ionicons style={{position: 'absolute', right: '5%',}} name="bookmarks" size={vw(8)} color="white" />
-          <View />
-          
+          <View style={{height: vw(10), width: vw(10), borderWidth: 1, position: 'absolute', right: '5%',}}/>
         </View>
       </View>
       
@@ -88,11 +84,6 @@ const Home = () => {
         <View>
           <Text style={style.headText}>Sách được mượn nhiều nhất</Text>
           <ListCard/>
-        </View>
-
-        {/* Category */}
-        <View>
-
         </View>
       </View>
       
@@ -154,8 +145,7 @@ const style = StyleSheet.create({
     fontSize: 20,
     fontWeight: 'bold',
     letterSpacing: 0.25,
-    marginTop: vw(10),
-    marginLeft: vw(2)
+    marginTop: vw(10)
   },
   forYouObject: {
     height: vw(80),

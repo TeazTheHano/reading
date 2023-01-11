@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { View, Image, Text, TouchableOpacity } from "react-native";
-import { vw, vh, vmin, vmax } from 'react-native-expo-viewport-units';
+
 
 import Home from "../screens/Home";
 import Add from "../screens/Add";
@@ -13,7 +13,6 @@ import Search from "../screens/Search";
 import Read from "../screens/Read";
 import SelectedBookScreen from "../components/SelectedBook";
 import ShowSearch from "../screens/ShowSearch";
-import Logo from "../screens/logo";
 import Splash from "../screens/Splash";
 import SignIn from "../screens/Signin";
 import SignUp from "../screens/Signup";
@@ -64,35 +63,35 @@ function AccountStacks() {
 }
 
 const Tab = createBottomTabNavigator();
-// const CustomButton = ({ children, onPress }) => (
-//   <TouchableOpacity
-//     style={{
-//       top: -30,
-//       justifyContent: "center",
-//       alignItems: "center",
-//       shadowColor: "#666666",
-//       shadowOffset: {
-//         width: 0,
-//         height: 10,
-//       },
-//       shadowOpacity: 0.25,
-//       shadowRadius: 3.5,
-//       elevation: 5,
-//     }}
-//     onPress={onPress}
-//   >
-//     <View
-//       style={{
-//         width: 70,
-//         height: 70,
-//         borderRadius: 35,
-//         backgroundColor: "red",
-//       }}
-//     >
-//       {children}
-//     </View>
-//   </TouchableOpacity>
-// );
+const CustomButton = ({ children, onPress }) => (
+  <TouchableOpacity
+    style={{
+      top: -30,
+      justifyContent: "center",
+      alignItems: "center",
+      shadowColor: "#666666",
+      shadowOffset: {
+        width: 0,
+        height: 10,
+      },
+      shadowOpacity: 0.25,
+      shadowRadius: 3.5,
+      elevation: 5,
+    }}
+    onPress={onPress}
+  >
+    <View
+      style={{
+        width: 70,
+        height: 70,
+        borderRadius: 35,
+        backgroundColor: "#A49CF2",
+      }}
+    >
+      {children}
+    </View>
+  </TouchableOpacity>
+);
 
 function Tabs() {
   return (
@@ -102,11 +101,9 @@ function Tabs() {
         tabBarStyle: {
           position: "absolute",
           elevation: 0,
-          backgroundColor: "#8A56E6",
-          borderTopLeftRadius: 15,
-          borderTopRightRadius: 15,
+          backgroundColor: "#666666",
           width: "100%",
-          height: vw(20),
+          height: 70,
           shadowColor: "#666666",
           shadowOffset: {
             width: 0,
@@ -124,8 +121,22 @@ function Tabs() {
         options={{
           headerShown: false,
           tabBarIcon: ({ focused }) => (
-            <View>
-              <Ionicons name={focused? "home" : "home-outline"} size={focused? 28 : 28} color="white" />
+            <View
+              style={{
+                alignItems: "center",
+                justifyContent: "center",
+                top: 10,
+              }}
+            >
+              <Image
+                source={require("../assets/home.png")}
+                resizeMode="contain"
+                style={{
+                  width: 30,
+                  height: 30,
+                  tintColor: focused ? "#A49CF2" : "#A4A4A4",
+                }}
+              ></Image>
             </View>
           ),
         }}
@@ -137,13 +148,42 @@ function Tabs() {
         options={{
           headerShown: false,
           tabBarIcon: ({ focused }) => (
-            <View>
-              <Ionicons name={focused? "ios-search-circle" : "ios-search"} size={focused? 42 : 28}  color="white" />
-
+            <View
+              style={{
+                alignItems: "center",
+                justifyContent: "center",
+                top: 10,
+              }}
+            >
+              <Image
+                source={require("../assets/2.png")}
+                resizeMode="contain"
+                style={{
+                  width: 30,
+                  height: 30,
+                  tintColor: focused ? "#A49CF2" : "#A4A4A4",
+                }}
+              ></Image>
             </View>
           ),
         }}
       />
+
+      <Tab.Screen
+        name="post"
+        component={ReadStacks}
+        options={{
+          headerShown: false,
+          tabBarIcon: ({ focused }) => (
+            <Image
+              source={require("../assets/icon.png")}
+              resizeMode="contain"
+              style={{ width: 30, height: 30, tintColor: "#fff" }}
+            />
+          ),
+          tabBarButton: (props) => <CustomButton {...props} />,
+        }}
+      ></Tab.Screen>
 
       <Tab.Screen
         name="Add"
@@ -151,8 +191,22 @@ function Tabs() {
         options={{
           headerShown: false,
           tabBarIcon: ({ focused }) => (
-            <View>
-              <Ionicons name={focused? "ios-add-circle" : "ios-add-circle-outline"} size={focused? 36 : 32} color="white" />
+            <View
+              style={{
+                alignItems: "center",
+                justifyContent: "center",
+                top: 10,
+              }}
+            >
+              <Image
+                source={require("../assets/3.png")}
+                resizeMode="contain"
+                style={{
+                  width: 30,
+                  height: 30,
+                  tintColor: focused ? "#A49CF2" : "#A4A4A4",
+                }}
+              ></Image>
             </View>
           ),
         }}
@@ -164,8 +218,22 @@ function Tabs() {
         options={{
           headerShown: false,
           tabBarIcon: ({ focused }) => (
-            <View>
-              <Ionicons name={focused? "person-sharp" : "person-outline"} size={28} color="white" />
+            <View
+              style={{
+                alignItems: "center",
+                justifyContent: "center",
+                top: 10,
+              }}
+            >
+              <Image
+                source={require("../assets/4.png")}
+                resizeMode="contain"
+                style={{
+                  width: 30,
+                  height: 30,
+                  tintColor: focused ? "#A49CF2" : "#A4A4A4",
+                }}
+              ></Image>
             </View>
           ),
         }}
@@ -179,7 +247,6 @@ function RootStack() {
   return (
     <NavigationContainer>
       <RootStacks.Navigator screenOptions={{ headerShown: false }}>
-        <RootStacks.Screen name="Logo" component={Logo} />
         <RootStacks.Screen name="Splash" component={Splash} />
         <RootStacks.Screen name="Sign in" component={SignIn} />
         <RootStacks.Screen name="Sign up" component={SignUp} />
